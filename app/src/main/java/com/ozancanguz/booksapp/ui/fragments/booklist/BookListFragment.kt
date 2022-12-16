@@ -8,20 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ozancanguz.booksapp.R
 import com.ozancanguz.booksapp.adapter.BooksAdapter
 import com.ozancanguz.booksapp.databinding.FragmentBookListBinding
+import com.ozancanguz.booksapp.ui.fragments.bookdetail.BookDetailArgs
 import com.ozancanguz.booksapp.viewmodels.BookViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class BookListFragment : Fragment() {
     private var _binding: FragmentBookListBinding? = null
-
     private val binding get() = _binding!!
     private val bookViewModel:BookViewModel by viewModels()
     private var bookAdapter=BooksAdapter()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

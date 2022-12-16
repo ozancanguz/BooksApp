@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/details_image"
-        android:layout_width="407dp"
-        android:layout_height="193dp"
+        android:layout_width="411dp"
+        android:layout_height="252dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/details_title"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,13 +29,13 @@
         android:layout_marginEnd="12dp"
         android:gravity="center"
         android:text="Description"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.453"></TextView>
+        app:layout_constraintVertical_bias="0.583"></TextView>
 
     <TextView
         android:id="@+id/details_yazar"
@@ -45,13 +45,13 @@
         android:layout_marginEnd="12dp"
         android:gravity="center"
         android:text="Description"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544"></TextView>
+        app:layout_constraintVertical_bias="0.664"></TextView>
 
     <TextView
         android:id="@+id/details_indirim"
@@ -61,28 +61,28 @@
         android:layout_marginEnd="12dp"
         android:gravity="center"
         android:text="Description"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712"></TextView>
+        app:layout_constraintVertical_bias="0.828"></TextView>
 
     <TextView
-        android:id="@+id/details_"
+        android:id="@+id/details_yayin"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         android:gravity="center"
         android:text="Description"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625"></TextView>
+        app:layout_constraintVertical_bias="0.743"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
