@@ -35,6 +35,11 @@ class BookViewModel@Inject constructor(private val repository: Repository,
         }
     }
 
+    fun saveToDb(book: Book){
+        val bookEntity=BookEntity(book)
+        insertBook(bookEntity)
+    }
+
 
   //  ---------------------------- for retrofit -------------
     fun requestAllBooks(){
@@ -42,6 +47,11 @@ class BookViewModel@Inject constructor(private val repository: Repository,
             val response=repository.remote.getAllBooks()
             if(response.isSuccessful){
                 booksList.postValue(response.body())
+
+                val books=booksList.value!!
+                 saveToDb(books)
+
+
             }else{
                 Log.d("booksviewmodel","data not found")
             }
