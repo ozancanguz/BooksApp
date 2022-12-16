@@ -3,10 +3,12 @@ package com.ozancanguz.booksapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.booksapp.R
 import com.ozancanguz.booksapp.data.model.Book
 import com.ozancanguz.booksapp.data.model.Result
+import com.ozancanguz.booksapp.ui.fragments.booklist.BookListFragmentDirections
 import com.ozancanguz.booksapp.utils.Constants.Companion.loadImage
 import kotlinx.android.synthetic.main.book_row_layout.view.*
 
@@ -34,6 +36,14 @@ class BooksAdapter:RecyclerView.Adapter<BooksAdapter.BookViewHolder>(){
         holder.itemView.books_img.loadImage(currentBook.image)
         holder.itemView.books_title.text=currentBook.title
         holder.itemView.books_price.text=currentBook.fiyat
+
+        holder.itemView.setOnClickListener {
+            val direction=BookListFragmentDirections.actionBookListFragmentToBookDetail(currentBook)
+            holder.itemView.findNavController().navigate(direction)
+
+        }
+
+
     }
 
     override fun getItemCount(): Int {

@@ -1,8 +1,12 @@
 package com.ozancanguz.booksapp.data.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+
+@Parcelize
 data class Result(
     @SerializedName("fiyat")
     val fiyat: String,
@@ -18,4 +22,4 @@ data class Result(
     val yayin: String,
     @SerializedName("yazar")
     val yazar: String
-)
+):Parcelable
