@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/bookListFragment">
+
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="com.ozancanguz.booksapp.ui.fragments.booklist.BookListFragment"
+        android:label="Book List" >
+        <action
+            android:id="@+id/action_bookListFragment_to_bookDetail"
+            app:destination="@id/bookDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookDetail"
+        android:name="com.ozancanguz.booksapp.ui.fragments.bookdetail.BookDetail"
+        android:label="Details"
+        tools:layout="@layout/fragment_book_detail" >
+        <action
+            android:id="@+id/action_bookDetail_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comparisonFragment"
+        android:name="com.ozancanguz.booksapp.ui.fragments.comparison.ComparisonFragment"
+        android:label="Comparison"
+        tools:layout="@layout/fragment_comparison" />
+</navigation>
