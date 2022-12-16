@@ -14,7 +14,7 @@ interface BookDao {
 
     // read from db
     @Query("select *from book_table order by id asc")
-    fun readAllBoooks(): Flow<List<Book>>
+    fun readAllBoooks(): Flow<List<BookEntity>>
 
     // insert database
     @Insert(onConflict = OnConflictStrategy.REPLACE)

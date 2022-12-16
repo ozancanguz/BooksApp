@@ -10,7 +10,7 @@ import javax.inject.Inject
 class LocalDataSource@Inject constructor(private val bookDao: BookDao) {
 
 
-   fun readAllBooks(): Flow<List<Book>> {
+   fun readAllBooks(): Flow<List<BookEntity>> {
        return bookDao.readAllBoooks()
     }
 
