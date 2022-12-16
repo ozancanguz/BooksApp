@@ -8,15 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ozancanguz.booksapp.R
 import com.ozancanguz.booksapp.adapter.BooksAdapter
 import com.ozancanguz.booksapp.databinding.FragmentBookListBinding
 import com.ozancanguz.booksapp.ui.fragments.bookdetail.BookDetailArgs
+import com.ozancanguz.booksapp.utils.observeOnce
 import com.ozancanguz.booksapp.viewmodels.BookViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class BookListFragment : Fragment() {
     private var _binding: FragmentBookListBinding? = null
@@ -36,8 +41,11 @@ class BookListFragment : Fragment() {
         // setup rv
         setupRv()
 
-        // set up data and update ui
-        observeLiveData()
+        // set up data and update ui.Instead of this list from db called
+       // observeLiveData()
+
+        //
+        listBooksFromDatabase()
 
         return view
     }
@@ -47,8 +55,23 @@ class BookListFragment : Fragment() {
         binding.recyclerView.adapter=bookAdapter
     }
 
+    fun listBooksFromDatabase(){
+          lifecycleScope.launch {
+            bookViewModel.readbookList.observeOnce(viewLifecycleOwner, Observer { database ->
+                if(database.isNotEmpty()){
+                    Log.d("bookviewmodel","database called")
+                    bookAdapter.setData(database[0].book)
+                }else{
+                    Log.d("bookviewmodel","request from api")
+                    observeLiveData()
+                }
+
+            })
+          }
+    }
+
     private fun observeLiveData() {
-        bookViewModel.requestSafeCallAllBooks()
+        bookViewModel.requestAllBOOKS()
         bookViewModel.booksList.observe(viewLifecycleOwner, Observer { book ->
          //   Log.d("listfragment","" +it.result)
 
@@ -56,6 +79,16 @@ class BookListFragment : Fragment() {
 
 
         })
+    }
+
+    private fun loadDataFromCache() {
+        lifecycleScope.launch {
+            bookViewModel.readbookList.observe(viewLifecycleOwner) { database ->
+                if (database.isNotEmpty()) {
+                    bookAdapter.setData(database[0].book)
+                }
+            }
+        }
     }
 
 

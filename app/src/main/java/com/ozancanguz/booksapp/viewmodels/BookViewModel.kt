@@ -35,6 +35,8 @@ class BookViewModel@Inject constructor(private val repository: Repository,
         }
     }
 
+
+    // save to db
     fun saveToDb(book: Book){
         val bookEntity=BookEntity(book)
         insertBook(bookEntity)
@@ -42,6 +44,10 @@ class BookViewModel@Inject constructor(private val repository: Repository,
 
 
   //  ---------------------------- for retrofit -------------
+    fun requestAllBOOKS(){
+        requestAllBooks()
+    }
+
     fun requestAllBooks(){
         job= CoroutineScope(Dispatchers.IO).launch {
             val response=repository.remote.getAllBooks()
