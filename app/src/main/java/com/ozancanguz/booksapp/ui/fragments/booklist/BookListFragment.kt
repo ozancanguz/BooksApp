@@ -35,7 +35,9 @@ class BookListFragment : Fragment() {
     private fun observeLiveData() {
         bookViewModel.requestSafeCallAllBooks()
         bookViewModel.booksList.observe(viewLifecycleOwner, Observer {
-            Log.d("listfragment","" +it.result)
+         //   Log.d("listfragment","" +it.result)
+
+
         })
     }
 
