@@ -30,5 +30,9 @@ class LocalDataSource@Inject constructor(private val bookDao: BookDao) {
         return bookDao.insertFavorites(favoritesEntity)
     }
 
+    suspend fun deleteAllFavorites(){
+        return bookDao.deleteAll()
+    }
+
 
 }

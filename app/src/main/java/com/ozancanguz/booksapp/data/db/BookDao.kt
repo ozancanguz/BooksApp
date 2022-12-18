@@ -31,4 +31,7 @@ interface BookDao {
     fun readFavoriteNews():Flow<List<FavoritesEntity>>
 
 
+    @Query("delete from favorites_table")
+    fun deleteAll()
+
 }

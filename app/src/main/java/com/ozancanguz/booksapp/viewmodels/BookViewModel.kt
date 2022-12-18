@@ -43,6 +43,12 @@ class BookViewModel@Inject constructor(private val repository: Repository,
         }
     }
 
+    fun deleteAllFavorites(){
+        viewModelScope.launch {
+            repository.local.deleteAllFavorites()
+        }
+    }
+
 
     // save to db
     fun saveToDb(book: Book){
