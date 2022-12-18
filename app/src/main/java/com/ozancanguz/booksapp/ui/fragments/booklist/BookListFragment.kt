@@ -55,6 +55,7 @@ class BookListFragment : Fragment() {
         binding.recyclerView.adapter=bookAdapter
     }
 
+
     fun listBooksFromDatabase(){
           lifecycleScope.launch {
             bookViewModel.readbookList.observeOnce(viewLifecycleOwner, Observer { database ->

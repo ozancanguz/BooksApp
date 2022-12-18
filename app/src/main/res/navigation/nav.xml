@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_bookListFragment_to_bookDetail"
             app:destination="@id/bookDetail" />
+        <action
+            android:id="@+id/action_bookListFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookDetail"
@@ -24,10 +27,20 @@
         <argument
             android:name="currentBook"
             app:argType="com.ozancanguz.booksapp.data.model.Result" />
+        <action
+            android:id="@+id/action_bookDetail_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
-        android:id="@+id/comparisonFragment"
-        android:name="com.ozancanguz.booksapp.ui.fragments.comparison.ComparisonFragment"
-        android:label="Comparison"
-        tools:layout="@layout/fragment_comparison" />
+        android:id="@+id/favoriteFragment"
+        android:name="com.ozancanguz.booksapp.ui.fragments.favorite.FavoriteFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_bookDetail"
+            app:destination="@id/bookDetail" />
+        <argument
+            android:name="currentBook"
+            app:argType="com.ozancanguz.booksapp.data.model.Result" />
+    </fragment>
 </navigation>

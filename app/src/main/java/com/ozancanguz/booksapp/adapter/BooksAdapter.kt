@@ -42,8 +42,6 @@ class BooksAdapter:RecyclerView.Adapter<BooksAdapter.BookViewHolder>(){
             holder.itemView.findNavController().navigate(direction)
 
         }
-
-
     }
 
     override fun getItemCount(): Int {

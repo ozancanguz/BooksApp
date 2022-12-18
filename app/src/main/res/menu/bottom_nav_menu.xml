@@ -3,12 +3,12 @@
 
     >
     <item android:id="@+id/bookListFragment"
-        android:title="News"
+        android:title="Books"
         android:icon="@drawable/ic_baseline_menu_24"></item>
 
 
-    <item android:id="@+id/comparisonFragment"
-        android:title="Comparison"
+    <item android:id="@+id/favoriteFragment"
+        android:title="Favorite"
         android:icon="@drawable/ic_compare"></item>
 
 

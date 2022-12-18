@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.bookListFragment,
-                R.id.bookDetail
+                R.id.favoriteFragment
             )
         )
 
