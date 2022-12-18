@@ -3,10 +3,13 @@ package com.ozancanguz.booksapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.ozancanguz.booksapp.R
 import com.ozancanguz.booksapp.data.db.entities.FavoritesEntity
 import com.ozancanguz.booksapp.data.model.Result
+import com.ozancanguz.booksapp.ui.fragments.favorite.FavoriteFragmentArgs
+import com.ozancanguz.booksapp.ui.fragments.favorite.FavoriteFragmentDirections
 import com.ozancanguz.booksapp.utils.Constants.Companion.loadImage
 import kotlinx.android.synthetic.main.favorite_row_lyout.view.*
 
@@ -37,10 +40,16 @@ class FavoritesAdapter:RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder
         holder.itemView.favorites_title.text=currentFavBook.result.title
         holder.itemView.favorites_price.text=currentFavBook.result.fiyat
 
+        holder.itemView.setOnClickListener {
+            var action=FavoriteFragmentDirections.actionFavoriteFragmentToBookDetail(currentFavBook.result)
+            holder.itemView.findNavController().navigate(action)
+        }
+
 
     }
 
     override fun getItemCount(): Int {
         return favoriteList.size
     }
+
 }
