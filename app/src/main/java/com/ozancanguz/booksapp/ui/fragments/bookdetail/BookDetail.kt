@@ -18,12 +18,8 @@ import kotlinx.android.synthetic.main.fragment_book_detail.*
 @AndroidEntryPoint
 class BookDetail : Fragment() {
     private var _binding: FragmentBookDetailBinding? = null
-
-
     private val bookdetailargs:BookDetailArgs by navArgs()
-
     private val binding get() = _binding!!
-
     private val bookViewModel:BookViewModel by viewModels()
 
     override fun onCreateView(
