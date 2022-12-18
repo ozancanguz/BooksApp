@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+
+import com.google.android.material.snackbar.Snackbar
 import com.ozancanguz.booksapp.R
 import com.ozancanguz.booksapp.adapter.FavoritesAdapter
 
 import com.ozancanguz.booksapp.databinding.FragmentFavoriteBinding
 import com.ozancanguz.booksapp.viewmodels.BookViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_favorite.*
 
 @AndroidEntryPoint
 class FavoriteFragment : Fragment() {
@@ -54,13 +57,17 @@ class FavoriteFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.delete_menu,menu)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.deleteAllIcon){
-            // delete all fun will call
+            // delete all
+            bookViewModel.deleteAllFavorites()
+            Snackbar.make(favoriteslayout,"All deleted from favorites ",Snackbar.LENGTH_SHORT)
+                .show()
         }
         return super.onOptionsItemSelected(item)
     }

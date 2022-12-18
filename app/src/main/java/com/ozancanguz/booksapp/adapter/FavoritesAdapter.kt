@@ -19,6 +19,7 @@ class FavoritesAdapter:RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder
 
     fun setFavData(newData:List<FavoritesEntity>){
         this.favoriteList=newData
+        notifyDataSetChanged()
     }
 
     class FavoritesViewHolder(view: View):RecyclerView.ViewHolder(view) {
@@ -40,7 +41,7 @@ class FavoritesAdapter:RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder
         holder.itemView.favorites_title.text=currentFavBook.result.title
         holder.itemView.favorites_price.text=currentFavBook.result.fiyat
 
-        holder.itemView.setOnClickListener {
+        holder.itemView.favRV.setOnClickListener {
             var action=FavoriteFragmentDirections.actionFavoriteFragmentToBookDetail(currentFavBook.result)
             holder.itemView.findNavController().navigate(action)
         }

@@ -32,6 +32,6 @@ interface BookDao {
 
 
     @Query("delete from favorites_table")
-    fun deleteAll()
+    suspend  fun deleteAll()
 
 }

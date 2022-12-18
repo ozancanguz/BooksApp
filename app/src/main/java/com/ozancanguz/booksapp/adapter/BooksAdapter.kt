@@ -19,6 +19,7 @@ class BooksAdapter:RecyclerView.Adapter<BooksAdapter.BookViewHolder>(){
 
     fun setData(newData: Book){
         this.bookList=newData.result
+        notifyDataSetChanged()
     }
 
     class BookViewHolder(view: View):RecyclerView.ViewHolder(view) {
