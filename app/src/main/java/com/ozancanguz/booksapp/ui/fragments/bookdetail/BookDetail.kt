@@ -2,6 +2,7 @@ package com.ozancanguz.booksapp.ui.fragments.bookdetail
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -55,16 +56,21 @@ class BookDetail : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.savetofavmenu){
-            saveToFavorites()
+            saveToFavorites(item)
             Snackbar.make(detailseLayout,"Added to favorites",Snackbar.LENGTH_SHORT)
                 .show()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun saveToFavorites() {
+    private fun saveToFavorites(item: MenuItem) {
         var favoritesEntity=FavoritesEntity(0,bookdetailargs.currentBook)
         bookViewModel.insertFavoriteBooks(favoritesEntity)
+        changeMenuItemColor(item,R.color.red)
+    }
+
+    private fun changeMenuItemColor(item: MenuItem, color: Int) {
+        item.icon?.setTint(ContextCompat.getColor(requireContext(),color))
     }
 
 
