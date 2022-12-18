@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.ozancanguz.booksapp.data.Repository
 import com.ozancanguz.booksapp.data.db.entities.BookEntity
+import com.ozancanguz.booksapp.data.db.entities.FavoritesEntity
 import com.ozancanguz.booksapp.data.model.Book
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -25,6 +26,7 @@ class BookViewModel@Inject constructor(private val repository: Repository,
 
     // -------------for room-----------
       var readbookList: LiveData<List<BookEntity>> = repository.local.readAllBooks().asLiveData()
+      var favoriteBooksList: LiveData<List<FavoritesEntity>>  = repository.local.readFavoriteNews().asLiveData()
 
 
     // insert books fun
@@ -32,6 +34,12 @@ class BookViewModel@Inject constructor(private val repository: Repository,
     fun insertBook(bookEntity: BookEntity){
         viewModelScope.launch {
             repository.local.insertBook(bookEntity)
+        }
+    }
+
+    fun insertFavoriteBooks(favoritesEntity: FavoritesEntity){
+        viewModelScope.launch {
+            repository.local.insertFavorites(favoritesEntity)
         }
     }
 
