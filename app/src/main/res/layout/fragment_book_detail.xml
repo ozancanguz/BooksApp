@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
         android:id="@+id/detailseLayout"
+    android:background="@drawable/book"
     tools:context=".ui.fragments.bookdetail.BookDetail">
 
 

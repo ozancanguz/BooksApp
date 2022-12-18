@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
     android:id="@+id/favRV"
+    android:background="@drawable/book"
     android:layout_marginBottom="4dp">
 
     <com.google.android.material.card.MaterialCardView

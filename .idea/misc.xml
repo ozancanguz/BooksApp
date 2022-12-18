@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/RealAndroiApps/BooksApp/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/RealAndroiApps/BooksApp/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/RealAndroiApps/BooksApp/app/src/main/res/layout/book_row_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/RealAndroiApps/BooksApp/app/src/main/res/layout/favorite_row_lyout.xml" value="0.25" />
         <entry key="..\:/RealAndroiApps/BooksApp/app/src/main/res/layout/fragment_book_detail.xml" value="0.20416666666666666" />
