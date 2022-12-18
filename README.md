@@ -19,3 +19,7 @@ Whenever we want we can delete them on favorites as well.
 
 **Arhictecture:**
 - MVVM
+
+--------------------------------------------------------- HERE IS THE DEMO OF THE PROJECT---------------------------------------------------------
+
+![books](https://user-images.githubusercontent.com/64928807/208311414-d4d1766e-1c9d-4b87-90f8-8bf6021bb51e.gif)
