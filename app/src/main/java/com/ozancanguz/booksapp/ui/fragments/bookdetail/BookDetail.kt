@@ -1,14 +1,14 @@
 package com.ozancanguz.booksapp.ui.fragments.bookdetail
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.ozancanguz.booksapp.R
 import com.ozancanguz.booksapp.databinding.FragmentBookDetailBinding
 import com.ozancanguz.booksapp.utils.Constants.Companion.loadImage
+import com.ozancanguz.booksapp.viewmodels.BookViewModel
 
 
 class BookDetail : Fragment() {
@@ -19,6 +19,8 @@ class BookDetail : Fragment() {
 
     private val binding get() = _binding!!
 
+    private val bookViewModel:BookViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +28,7 @@ class BookDetail : Fragment() {
         _binding = FragmentBookDetailBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        setHasOptionsMenu(true)
         updateUI()
 
         return view
@@ -38,6 +41,13 @@ class BookDetail : Fragment() {
         binding.detailsYazar.text=bookdetailargs.currentBook.yazar
         binding.detailsYayin.text=bookdetailargs.currentBook.yayin
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.savetofav_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
 
 
 }

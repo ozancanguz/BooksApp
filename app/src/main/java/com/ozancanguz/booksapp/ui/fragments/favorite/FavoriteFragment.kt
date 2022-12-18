@@ -19,17 +19,13 @@ class FavoriteFragment : Fragment() {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        setHasOptionsMenu(true)
+
 
 
         return view
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.savetofav_menu,menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
 
 
 
