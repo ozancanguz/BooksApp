@@ -9,7 +9,7 @@ import com.ozancanguz.booksapp.data.model.Result
 class FavoritesEntity(
 
     @PrimaryKey(autoGenerate = true)
-    var id:Int=0,
+    var id:Int,
     var result:Result
 
 ){
