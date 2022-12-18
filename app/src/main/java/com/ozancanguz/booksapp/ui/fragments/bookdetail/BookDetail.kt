@@ -5,12 +5,16 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.ozancanguz.booksapp.R
+import com.ozancanguz.booksapp.data.db.entities.FavoritesEntity
 import com.ozancanguz.booksapp.databinding.FragmentBookDetailBinding
 import com.ozancanguz.booksapp.utils.Constants.Companion.loadImage
 import com.ozancanguz.booksapp.viewmodels.BookViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_book_detail.*
 
-
+@AndroidEntryPoint
 class BookDetail : Fragment() {
     private var _binding: FragmentBookDetailBinding? = null
 
@@ -43,11 +47,25 @@ class BookDetail : Fragment() {
     }
 
 
+    // create menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.savetofav_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.savetofavmenu){
+            saveToFavorites()
+            Snackbar.make(detailseLayout,"Added to favorites",Snackbar.LENGTH_SHORT)
+                .show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun saveToFavorites() {
+        var favoritesEntity=FavoritesEntity(0,bookdetailargs.currentBook)
+        bookViewModel.insertFavoriteBooks(favoritesEntity)
+    }
 
 
 }
