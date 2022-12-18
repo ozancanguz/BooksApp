@@ -34,6 +34,9 @@ class FavoriteFragment : Fragment() {
         // update ui
         updateUI()
 
+        // set menu
+        setHasOptionsMenu(true)
+
 
 
         return view
@@ -48,8 +51,18 @@ class FavoriteFragment : Fragment() {
          bookViewModel.favoriteBooksList.observe(viewLifecycleOwner, Observer {
              favoritesAdapter.setFavData(it)
          })
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.deleteAllIcon){
+            // delete all fun will call
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
